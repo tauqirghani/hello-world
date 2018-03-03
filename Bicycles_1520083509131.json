@@ -1,0 +1,142 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Bicycles",
+    "x-lastModified": "Mar 03, 2018 05:23AM PST",
+    "description": "About Bicycles"
+  },
+  "paths": {
+    "/bicycle/{typeid}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/BicycleTypes"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "typeid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "operationId": "getBicycle_typeid"
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "typeid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Description of Bicycle Type",
+            "schema": {
+              "$ref": "#/definitions/BicycleType"
+            }
+          }
+        ],
+        "operationId": "postBicycle_typeid",
+        "consumes": [
+          "application/json"
+        ]
+      }
+    },
+    "/bicycles": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BicycleTypes"
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "operationId": "getBicycles"
+      }
+    }
+  },
+  "definitions": {
+    "BicycleType": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string",
+          "default": "Utility"
+        },
+        "Price": {
+          "type": "float",
+          "default": 90
+        },
+        "Description": {
+          "type": "string",
+          "default": "Everyday bike"
+        }
+      }
+    },
+    "GiveNewSchemaNameHere": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string",
+          "default": "Utility"
+        },
+        "Price": {
+          "type": "integer",
+          "default": 90
+        },
+        "Description": {
+          "type": "string",
+          "default": "Everyday bike"
+        }
+      }
+    },
+    "BicycleTypes": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string",
+          "default": "Utility"
+        },
+        "Price": {
+          "type": "float",
+          "default": 90
+        },
+        "Description": {
+          "type": "string",
+          "default": "Everyday bike"
+        }
+      }
+    }
+  }
+}
